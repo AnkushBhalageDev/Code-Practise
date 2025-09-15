@@ -114,6 +114,9 @@ public class Streaming {
         //In given List if we found number with is divisible by 3 the sqaure that number and other number print as it is
         int [] arrs={2,4,6,8,2,10,4,12,6};            // out put 2,4,36,8,2,10,4,144,36
         Arrays.stream(arrs).map(i->i%3==0?i*i:i).boxed().forEach(System.out::println);
+        System.out.println("list");
+        List<Integer> lstqw= new ArrayList<>(Arrays.asList(2,4,6,8,2,10,4,12,6));
+        lstqw.stream().map(i->i%3==0?i*i:i).forEach(System.out::println);
             }
 
 }
