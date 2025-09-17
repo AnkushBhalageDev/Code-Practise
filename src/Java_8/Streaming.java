@@ -1,8 +1,7 @@
 package Java_8;
 
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+import java.util.stream.*;
 
 public class Streaming {
     public static void main(String[] args) {
@@ -117,6 +116,31 @@ public class Streaming {
         System.out.println("list");
         List<Integer> lstqw= new ArrayList<>(Arrays.asList(2,4,6,8,2,10,4,12,6));
         lstqw.stream().map(i->i%3==0?i*i:i).forEach(System.out::println);
+
+        // in the given 2 listA and listB , findout common elements which are even
+        List<Integer> listA= Arrays.asList(1,2,11,3,25,54,5,6,7,8);
+        List<Integer> listB= Arrays.asList(3,4,5,6,9,1,54,2,25);
+//        List<Integer>listC=listA.stream().filter(listB::contains).filter(i->i%2==0).toList();
+//        System.out.println(listC);
+        listA.stream().filter(listB::contains).collect(Collectors.groupingBy(i->{
+            if(i%2==0){
+                return "EVEN :";
+            }else{
+                return "ODD :";
             }
+        })).forEach((k,v)->System.out.println(k+" "+v));
+
+        // find out valid rotation on string
+        // eg: valid rotate string of string "abcd" are "bcda","cdba","dabc"
+        // eg: invalid rotate string of string "abcd" are "adbc","dacb","cabd",etc
+        String a="abcd";
+        String b= a+a;
+        System.out.println(b.contains("bcda"));
+
+
+
+    }
+
+
 
 }
