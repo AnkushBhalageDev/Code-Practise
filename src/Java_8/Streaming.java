@@ -15,8 +15,8 @@ public class Streaming {
         List<Integer> lst1= Arrays.asList(1,2,3,4,5,6,7,8,9,10);
         int num=8;
         Map<Boolean,List<Integer>> lowhigh = lst1.stream().filter(i->i!=num).collect(Collectors.partitioningBy(i->i>num));
-        Integer immHigh=lowhigh.get(true).get(0);
-        Integer imLow=lowhigh.get(false).get(lowhigh.get(false).size()-1);
+        int immHigh=lowhigh.get(true).get(0);
+        int imLow=lowhigh.get(false).get(lowhigh.get(false).size()-1);
 
         System.out.println("Immediate High : "+ immHigh+" Immediate Low :"+imLow);
 
@@ -137,7 +137,29 @@ public class Streaming {
         String b= a+a;
         System.out.println(b.contains("bcda"));
 
+//div by 6 and non div by 6 substraction
+        List<Integer> listInt= Arrays.asList(1,2,3,5,6,98,6,7,9,9,98,98);
+        Set<Integer> listSet= new HashSet<>(listInt);
+        IntStream.rangeClosed(1,listInt.size()-1).filter(i-> !listSet.contains(i)).forEach(System.out::print);
 
+        int nondiv=IntStream.rangeClosed(1,30).filter(i->i%6==0).sum();
+        System.out.println(nondiv);
+        int div= IntStream.rangeClosed(1,30).filter(i->i%6!=0).sum();
+        System.out.println(div-nondiv);
+
+        // 2 string anagram or not
+        String listen="Listen";
+        String silent="siLent";
+        char[] a1 = listen.toCharArray();
+        char[] a2 = silent.toCharArray();
+        Arrays.sort(a1);
+        Arrays.sort(a2);
+        System.out.println(Arrays.equals(a1,a2));
+
+        // sort list by last character
+        List<String> strArr= Arrays.asList("Ankush","kartik","kunal","banana","apple");
+        List<String> sortByLastChar= strArr.stream().sorted(Comparator.comparing(word->word.charAt(word.length()-1))).toList();
+        System.out.println(sortByLastChar);
 
     }
 
