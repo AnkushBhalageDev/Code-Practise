@@ -13,6 +13,13 @@ package defaulat_static_methods_in_Interface;
 * 3.No need to define method in implementation class
 * 4.Method can be accessed with obj of implementation class
 * */
+
+/*Below was the issue solved in java-8 by introducing default and static method
+* Problem (Pre-Java 8)	                                            Feature Introduced	            Benefit
+Adding new methods to interfaces breaks existing code	            Default methods	                Backward compatibility
+Interface-related utility methods had to be in separate classes	    Static methods	                Keep related code inside interface itself
+Functional programming support was hard	                            Default methods	                 Enabled richer functional interfaces for lambdas
+* */
 public class Main {
     public static void main(String[] args) {
         Animal.animalInfo(); // calling static method of animal interface
