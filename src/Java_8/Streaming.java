@@ -161,6 +161,22 @@ public class Streaming {
         List<String> sortByLastChar= strArr.stream().sorted(Comparator.comparing(word->word.charAt(word.length()-1))).toList();
         System.out.println(sortByLastChar);
 
+        String name="Ankush Bhalage";
+        char[] charA=name.toCharArray();
+
+        Set<Character> seen= new LinkedHashSet<>();
+        StringBuilder s3= new StringBuilder();
+
+        for(char result: charA){
+            if(!seen.contains(result)){
+                seen.add(result);
+                s3.append(result);
+                System.out.println(s3.toString());
+            }
+        }
+        System.out.println(seen);
+        System.out.println("hi "+s3.toString());
+
     }
 
 
