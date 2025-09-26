@@ -5,7 +5,7 @@ import java.util.stream.*;
 
 public class Streaming {
     public static void main(String[] args) {
-        //Find the first Non Repeated Character in given String
+        //Find the first Non-Repeated Character in given String
         String string1="My nam is";
         Character c= string1.chars().mapToObj(i->(char)i).collect(Collectors.groupingBy(i->i, LinkedHashMap::new,Collectors.counting()))
                 .entrySet().stream().filter(i->i.getValue()==1).findFirst().get().getKey();
