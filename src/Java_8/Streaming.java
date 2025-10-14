@@ -176,6 +176,10 @@ public class Streaming {
         }
         System.out.println(seen);
         System.out.println("hi "+s3.toString());
+//count list of vowels in each string from list
+         List<String> list12=Arrays.asList("Ankush","Bhalage","Ramesh","Shantanu");
+        Map<String,Long> lMap=list12.stream().collect(Collectors.toMap(i->i,j->j.toLowerCase().chars().filter(k->"aeiou".indexOf(k)!=-1).count()));
+        System.out.println(lMap);
 
     }
 
