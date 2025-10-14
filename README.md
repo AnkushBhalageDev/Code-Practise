@@ -282,3 +282,7 @@ Input:
 Output:
 
 Ankush Blge
+
+26️⃣ Find average salary of each dept
+27️⃣ Find total salary of dept
+
