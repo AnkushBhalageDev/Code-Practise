@@ -176,13 +176,30 @@ public class Streaming {
         }
         System.out.println(seen);
         System.out.println("hi "+s3.toString());
-//count list of vowels in each string from list
+
+        
+        //count list of vowels in each string from list
          List<String> list12=Arrays.asList("Ankush","Bhalage","Ramesh","Shantanu");
         Map<String,Long> lMap=list12.stream().collect(Collectors.toMap(i->i,j->j.toLowerCase().chars().filter(k->"aeiou".indexOf(k)!=-1).count()));
         System.out.println(lMap);
 
-    }
+        // find prime numbers from a list
+        List<List<Integer>> listList=Arrays.asList(
+                Arrays.asList(1,2,3),
+                Arrays.asList(4,5,6),
+                Arrays.asList(7,8,9,11)
+        );
+        System.out.println(listList);
+        List<Integer> primeNumbers= listList.stream().flatMap(List::stream).filter(i->isPrime(i)).toList();
 
+        System.out.println(primeNumbers);
+
+    }
+     public static boolean isPrime(int num){
+        System.out.println(num);
+        if(num<=1) return false;
+        return IntStream.rangeClosed(2,(int) Math.sqrt(num)).allMatch(n->num%n!=0);
+    }
 
 
 }
