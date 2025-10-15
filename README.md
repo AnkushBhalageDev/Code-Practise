@@ -285,6 +285,8 @@ Ankush Blge
 
 26️⃣ Find average salary of each dept
 
+27️⃣ find out prime numbers from a list
+
 
 27️⃣ Find total salary of dept
 
