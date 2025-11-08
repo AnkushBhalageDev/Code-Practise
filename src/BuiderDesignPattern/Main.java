@@ -10,5 +10,8 @@ public class Main {
                 .number(845949094)
                 .build();
         System.out.println(user);
+
+        User user1= new User.Builder("Ram","Ram@fev.com").build();
+        System.out.println(user1);
     }
 }
