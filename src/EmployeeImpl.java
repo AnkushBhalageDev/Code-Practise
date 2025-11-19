@@ -115,5 +115,9 @@ public class EmployeeImpl {
 // find out maxaverage salary from dept
         Map<String,Double> maxAvgSal=empList.stream().collect(Collectors.groupingBy(Employee::dept,Collectors.averagingDouble(Employee::salary))).entrySet().stream().max(Comparator.comparing(Map.Entry::getValue)).stream().collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue));
         System.out.println(maxAvgSal);
+        // max sal emp from each dept
+        Map<String,Integer> map=empList.stream().collect(Collectors.groupingBy(Employee::dept,Collectors.collectingAndThen(Collectors.toList(),list1->list1.stream().max(Comparator.comparing(Employee::salary)).get().salary)));
+        System.out.println(map);
+
     }
 }
